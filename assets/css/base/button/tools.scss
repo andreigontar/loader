@@ -1,0 +1,106 @@
+%btn-tool-icon-size {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+    background-size: 18px;
+    background-repeat: no-repeat;
+}
+$btn-tool-icon: (
+    folder: "assets/img/account/folder.png",
+    profile: "assets/img/account/profile.png",
+    cart: "assets/img/account/cart.png",
+    favorite: "assets/img/account/favorite.png",
+    coin: "assets/img/account/coin.png",
+    delete: "assets/img/account/delete.png",
+    arrow: "assets/img/account/arrow.png",
+);
+
+
+@mixin btn-tool($mini: false, $isblack: false, $nonborder: false, $favorite: false) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 148%;
+    color: $titleOpti;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $fontOpti;
+    border-radius: 8px;
+    padding: 0 16px;
+    width: auto;
+    height: 48px;
+    .icon {
+        @extend %btn-tool-icon-size;
+
+        @each $type, $icon in $btn-tool-icon {
+            &--#{$type} {
+                background-image: url($icon);
+            }
+        }
+    }
+    .check {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 18px;
+        height: 18px;
+        border: 1px solid $fontOpti;
+        border-radius: 4px;
+        margin-right: 4px;
+
+        &--active {
+            background-image: url("assets/img/account/check.svg");
+            background-repeat: no-repeat;
+            background-size: 12px 9px;
+            background-position: 2px 3px;
+        }
+    }
+
+    .tip {
+        margin-left: 12px;
+    }
+
+    &:hover, &--active {
+        border-color: $active;
+        color: $active;
+        .check {
+            border-color: $active;
+        }
+    }
+
+    @if $mini {
+        font-size: 14px;
+        line-height: 130%;
+        height: 30px;
+    }
+
+    @if $isblack {
+        background: $black;
+        color: $white;
+        border: unset;
+        &:hover {
+            border: unset;
+            background: $active;
+            color: $white;
+        }
+    }
+
+    @if $nonborder {
+        padding: 0;
+        border: none;
+        .check {
+            margin-right: 12px;
+        }
+        &:hover {
+            border: none;
+        }
+    }
+
+    @if $favorite {
+        padding: 6px;
+        .icon {
+            margin: 0;
+        }
+    }
+}

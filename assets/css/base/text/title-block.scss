@@ -1,0 +1,35 @@
+.title-block {
+    margin-bottom: 36px;
+
+    &__title {
+        font-family: 'Montserrat', serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 38px;
+        color: $black;
+    }
+
+    &__desc {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+        color: $titleOpti;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+    }
+    &__title-m {
+        font-family: 'Montserrat', serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        color: $black;
+    }
+    &__opt {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 130%;
+        color: $borderInput;
+        margin-top: 8px;
+    }
+}

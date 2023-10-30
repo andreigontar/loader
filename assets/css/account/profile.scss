@@ -1,0 +1,76 @@
+@import "assets/css/base/button/tools";
+@import "assets/css/base/text/account";
+
+// что нужно из этого?
+@import "assets/css/base/button/main";
+@import "assets/css/form/input";
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.id-user {
+    padding: 8px 20px;
+    border: 1px solid $borderInput;
+    border-radius: 8px;
+    cursor: pointer;
+    width: fit-content;
+
+    &__title {
+        @extend %opt-title;
+        margin-bottom: 4px;
+    }
+
+    &__number {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 122%;
+        color: $titleOpti;
+        display: flex;
+        align-items: center;
+        .icon-copy {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            background-image: url("assets/img/account/copy.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.email {
+    &__title {
+        @extend %opt-title;
+        margin-bottom: 8px;
+    }
+
+    &__current {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 122%;
+        color: $titleOpti;
+        margin-bottom: 8px;
+    }
+
+    &__change {
+        @include btn-tool;
+        width: 290px;
+
+        .icon-edit {
+            width: 14px;
+            height: 14px;
+            background-image: url("assets/img/account/edit.png");
+            background-repeat: no-repeat;
+            margin-left: 4px;
+        }
+    }
+}
+
+.change-password {
+    &__title {
+        @extend %opt-title;
+        margin-bottom: 8px;
+    }
+}

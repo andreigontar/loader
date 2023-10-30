@@ -1,0 +1,176 @@
+.files-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 32px;
+        background: $borderInput;
+        padding: 0 20px 0 88px;
+    }
+    &__title-item {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 156%;
+        color: $font;
+    }
+    &__items-block {
+        margin-bottom: 56px;
+    }
+    &__item {}
+    &__files-all {
+        margin: 0 auto 0;
+    }
+}
+
+.files-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: $borderInput;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 156%;
+    color: $font;
+    margin-bottom: 20px;
+
+    &__choose-all {
+        height: 100%;
+        display: flex;
+        input:checked + label .check__icon {
+            background-size: 18px 18px;
+            transition: unset;
+        }
+        label {
+            .check__icon {
+                width: 28px;
+                height: 28px;
+            }
+            .check__text {
+                font-size: 14px;
+                line-height: 156%;
+                color: $font;
+            }
+        }
+
+    }
+    &__download-all {}
+}
+
+%text-download {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $active;
+    text-transform: uppercase;
+}
+.download-all {
+    @extend %text-download;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &__icon {
+        width: 16px;
+        height: 17px;
+        margin-right: 8px;
+    }
+}
+
+
+%files-text {
+    font-size: 14px;
+    line-height: 156%;
+    color: $font;
+}
+.files-item {
+    display: flex;
+    align-items: center;
+    height: calc(72px + (16px * 2));
+    width: 100%;
+    padding: 16px 20px 16px 8px;
+    @extend %files-text;
+    border-bottom: 1px solid $borderInput;
+
+    &__check {
+        height: 103px;
+        width: 34px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background: $checkHover;
+        }
+    }
+    &__preview {
+        width: 72px;
+        height: 72px;
+        background: $borderInput;
+        margin-left: 70px;
+        margin-right: 94px;
+    }
+    &__stock {
+        width: 220px;
+    }
+    &__type {
+        width: 220px;
+    }
+    &__id {
+        width: 220px;
+    }
+    &__price {
+        width: 220px;
+    }
+    &__download {
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $font;
+        height: 100%;
+        margin: 0 0 0 auto;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        &:hover {
+            color: $active;
+            .files-item__icon {
+                fill: $active;
+            }
+        }
+    }
+    &__icon {
+        margin-right: 8px;
+        width: 16px;
+        height: 17px;
+        fill: $black;
+        transition: unset;
+    }
+}
+
+
+.files-empty {
+    &__block {
+        margin-bottom: 36px;
+    }
+    &__block {
+        height: 180px;
+        width: 100%;
+        background: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__title {
+        font-size: 36px;
+        line-height: 42px;
+        color: $borderInput;
+    }
+}

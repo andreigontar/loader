@@ -1,0 +1,233 @@
+@import "assets/css/base/button/tools";
+@import "assets/css/base/text/account";
+
+$history-titles: (
+        preview: 134px,
+        order: 157px,
+        stock-count: 157px,
+        format: 100px,
+        id: 157px,
+        price: 76px,
+        date: 100px,
+);
+
+$history-item: (
+        preview: 100px,
+        stock-count: 157px,
+        order: 157px,
+        format: 100px,
+        id: 157px,
+        price: 76px,
+        date: 100px,
+        download: 48px,
+        space: 157px,
+);
+
+$history-item-multi: (
+        preview: 100px,
+        stock-count: 157px,
+        price: 76px,
+        date: 100px,
+        download: 48px,
+);
+
+.history {
+    &__filter {}
+    &__titles {
+        margin: 12px 0 16px 0;
+    }
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    &__title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 122%;
+        color: $titleOpti;
+    }
+    &__check {}
+    &__action {
+        display: flex;
+        gap: 12px;
+        margin: 0 0 0 auto;
+    }
+    &__to-mail {
+        @include btn-tool($nonborder: true);
+    }
+    &__download-check {
+        @include btn-tool;
+    }
+}
+
+.history-titles {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    background: $page;
+    border-radius: 32px;
+    padding-left: 68px;
+    li {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $fontOrderItem;
+
+        @each $item, $width in $history-titles {
+            &[data-type="#{$item}"] {
+                width: $width;
+            }
+        }
+        .tip {
+            margin-left: 5px;
+        }
+    }
+}
+
+%text-history-item {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $titleOpti;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+%wrap {
+    display: flex;
+    align-items: center;
+    height: 116px;
+    width: 100%;
+    border: 1px solid $borderItem;
+    border-radius: 12px;
+    padding-right: 20px;
+}
+
+.history-item {
+    @extend %wrap;
+    &--active {
+        border-color: $active;
+    }
+    &--multi {
+        flex-direction: column;
+        padding-right: 0;
+        &.open {
+            height: auto;
+            border-color: $titleOpti;
+        }
+        .history-item {
+            border: unset;
+            border-radius: 0;
+            border-top: 1px solid $borderItem;
+        }
+    }
+    &__wrap-title {
+        @extend %wrap;
+        border: unset;
+    }
+    &__check {
+        width: 68px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px 0 0 12px;
+        cursor: pointer;
+
+        .check {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            background: $white;
+            border: 1px solid $fontOpti;
+            border-radius: 4px;
+
+            &--active {
+                background-image: url("assets/img/account/check-bg.svg");
+                background-repeat: no-repeat;
+                background-size: 20px 16px;
+                background-position: 3px 5px;
+                border-color: $active;
+            }
+        }
+        &:hover {
+            background: $page;
+        }
+    }
+    &__preview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        background: $fontOpti;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $fontOrderItem;
+        margin-right: 34px;
+    }
+    &__stock-count {}
+    &__more {
+        margin: 0 auto 0 0;
+    }
+    &__order {}
+    &__format {
+        .type, .size {
+            @extend %text-history-item;
+        }
+    }
+    &__id {}
+    &__space {}
+    &__price {}
+    &__date {}
+    &__download {
+        .download {
+            @include btn-tool($mini: true, $favorite: true);
+        }
+    }
+    &__inner-list {}
+
+    @each $item, $width in $history-item {
+        & [data-type="#{$item}"] {
+            @extend %text-history-item;
+            width: $width;
+        }
+    }
+}
+
+.more {
+    @include btn-tool($mini: true);
+    width: 158px;
+    .icon {
+        background-image: url("assets/img/account/arrow.png");
+        transform: rotate(90deg);
+        width: 18px;
+        height: 18px;
+        background-size: 18px;
+        background-repeat: no-repeat;
+        margin-left: 4px;
+    }
+    &:hover{
+        .icon {
+            background-image: url("assets/img/account/arrow-active.png");
+        }
+    }
+}
+
+.inner-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

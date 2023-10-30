@@ -1,0 +1,65 @@
+@import "assets/css/base/button/tools";
+
+.account-navigate {
+    width: 280px;
+    min-width: 280px;
+    background: white;
+    border-radius: 12px;
+    height: calc(48px * 4);
+    max-height: calc(46px * 4);
+    position: sticky;
+    top: 0;
+    float: left;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+    &__item {
+        height: 46px;
+        background: transparent;
+        &:not(&:last-of-type) {
+            border-bottom: 1px solid $page;
+        }
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 148%;
+        color: $black;
+        padding: 0 20px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        &:hover, &.account-navigate__link--active {
+            color: $active;
+            .icon {
+                filter: unset;
+            }
+            .arrow {
+                background-image: url("assets/img/account/arrow-active.png");
+            }
+        }
+
+        .icon {
+            @extend %btn-tool-icon-size;
+            margin-right: 8px;
+            filter: grayscale(100%);
+            @each $type, $icon in $btn-tool-icon {
+                &--#{$type} {
+                    background-image: url($icon);
+                }
+            }
+        }
+        .arrow {
+            margin: 0 0 0 auto;
+            width: 18px;
+            height: 18px;
+            background-image: url("assets/img/account/arrow.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+}

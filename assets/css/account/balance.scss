@@ -1,0 +1,112 @@
+.account-balance {
+    display: flex;
+    flex-direction: column;
+    &__info {}
+}
+
+.account-balance-title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+    color: $black;
+}
+.account-balance-tip {
+    font-size: 14px;
+    line-height: 126%;
+    color: $fontOrderItem;
+    background: $warnBack;
+    padding: 4px 8px;
+    width: fit-content;
+    block-size: fit-content;
+}
+.account-balance-label {
+    font-size: 18px;
+    line-height: 126%;
+    color: $font;
+}
+.account-balance-sub-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    color: $black;
+}
+.account-balance-field {
+    width: 528px;
+    height: 52px;
+    padding: 0 18px;
+    border: 1px solid $borderInput;
+    color: $font;
+    font-size: 22px;
+    line-height: 156%;
+    &::placeholder {
+        color: $borderInput;
+    }
+    &:focus {
+        border: 1px solid $active;
+        outline: none;
+    }
+}
+
+.check-info {
+    padding: 26px;
+    margin-bottom: 22px;
+    background: $white;
+
+    &__title {
+        margin-bottom: 28px;
+    }
+    &__balance-title {
+        font-size: 20px;
+        line-height: 23px;
+        color: $fontOpti;
+        margin-bottom: 8px;
+    }
+    &__balance-num {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 42px;
+        color: $black;
+    }
+}
+
+.fill-balance {
+    padding: 26px;
+    background: $white;
+
+    &__title {
+        margin-bottom: 28px;
+    }
+    &__title-sum {
+        margin-bottom: 8px;
+    }
+    &__tip {
+        margin-bottom: 4px;
+    }
+    &__label {
+        margin-bottom: 12px;
+    }
+    &__field-sum {
+        margin-bottom: 28px;
+    }
+    &__type-pay {
+        margin-bottom: 8px;
+    }
+    &__pay-methods-img {
+        width: 208px;
+        height: 20px;
+    }
+    &__tip-pay {
+        margin-top: 8px;
+        margin-bottom: 28px;
+    }
+    &__check-pay-block {
+        display: flex;
+    }
+    &__action {
+        margin-top: 28px;
+        width: 274px;
+        height: 50px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}

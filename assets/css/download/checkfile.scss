@@ -1,0 +1,63 @@
+%stage-types-price-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $fontOrderItem;
+}
+
+.checkfile {
+    margin-bottom: 38px;
+    &__check {
+        display: flex;
+        gap: 20px;
+    }
+    &__price {
+        margin-top: 12px;
+    }
+
+    .check {
+        &__btn {
+            @include btn-tool;
+        }
+    }
+
+    .price {
+        padding: 0 20px;
+        height: 30px;
+        background: $page;
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        &__title {
+            @extend %stage-types-price-text;
+            display: flex;
+            margin-right: 15px;
+            img  {
+                width: 18px;
+                height: 18px;
+                margin-right: 4px;
+            }
+        }
+        &__list {
+            display: flex;
+            gap: 15px;
+            li {
+                @extend %stage-types-price-text;
+                position: relative;
+                padding-left: 15px;
+                &::before {
+                    content: '';
+                    background: $fontOrderItem;
+                    width: 3px;
+                    height: 3px;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0;
+                    top: 6px;
+                }
+            }
+        }
+    }
+}

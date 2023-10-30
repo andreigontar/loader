@@ -1,0 +1,36 @@
+@mixin btn-order($width: 285px, $height: 68px, $radius: 18px, $fz: 18px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+    height: $height;
+    background: $active;
+    border-radius: $radius;
+    color: $white;
+    font-weight: 600;
+    font-size: $fz;
+    img {
+        margin-right: 10px;
+        width: 38px;
+        height: 38px;
+    }
+    &:hover {
+        background: $activeHover;
+    }
+}
+
+@mixin btn-active($width: 267px, $height: 62px, $radius: 12px, $fz: 16px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+    height: $height;
+    background: $black;
+    border-radius: $radius;
+    color: $white;
+    font-weight: 400;
+    font-size: $fz;
+    &:hover {
+        background: $activeHover;
+    }
+}

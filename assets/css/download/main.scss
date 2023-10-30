@@ -1,0 +1,33 @@
+@import "stages";
+@import "stock-items";
+@import "checkfile";
+@import "textblock";
+@import "cart";
+@import "details-order";
+
+%back {
+    background: $white;
+    border-radius: 20px;
+    width: 100%;
+}
+%stage-types-price-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $fontOrderItem;
+}
+
+.download {
+    .title-block {
+        margin-bottom: 26px;
+    }
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+    &__stages {
+        margin-right: 26px;
+    }
+    &__aside {}
+}

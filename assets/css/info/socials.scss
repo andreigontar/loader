@@ -1,0 +1,60 @@
+@import "assets/css/base/button/main";
+
+.socials {
+    display: flex;
+
+    &__block {
+        display: flex;
+    }
+    &__item {
+        margin-right: 8px;
+    }
+    &__action {
+        @include btn-active;
+        &:hover {
+            background: $active;
+        }
+    }
+}
+
+.social-info {
+    width: 267px;
+    height: 62px;
+    list-style-type: none;
+    background: $white;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    &:hover {
+        border: 2px solid $active;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding-left: 12px;
+    }
+    &__img {
+        margin-right: 12px;
+        width: 38px;
+        height: 38px;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 122%;
+        color: $black;
+        margin-bottom: 2px;
+    }
+    &__desc {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $titleOpti;
+    }
+}

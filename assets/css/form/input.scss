@@ -1,0 +1,119 @@
+@mixin btn-input($width) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+    width: $width;
+    height: 48px;
+    border-radius: 8px;
+    background: $active;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: $white;
+    transition: .1s;
+    &:hover {
+        background: $activeHover;
+    }
+    &:disabled {
+        background: #C0BFCC;
+    }
+}
+
+.registration, .change-password {
+
+    .server-message, .server-message--email {
+        position: relative;
+
+        .formkit-message, .email-message {
+            width: 100%;
+            height: auto;
+            padding: 16px 8px 16px 16px;
+            margin-bottom: 24px;
+            background: $page;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 122%;
+            color: $black;
+        }
+        &__link {
+            font-weight: 400;
+            font-size: 14px;
+            color: $active;
+            margin-top: 10px;
+            display: flex;
+        }
+    }
+
+    [data-family="text"] {
+        .sh-input {
+            width: 100%;
+            height: 48px;
+            background: $white;
+            padding: 8px 8px 8px 16px;
+            border: 1px solid $borderInput;
+            border-radius: 8px;
+            position: relative;
+
+            &:focus-visible, &:focus {
+                border: 1px solid $black;
+                outline: none;
+            }
+
+            &::placeholder {
+                font-weight: 400;
+                font-size: 14px;
+                color: $borderInput;
+            }
+        }
+        .sh-inner {
+            position: relative;
+        }
+        .formkit-suffix-icon {
+            position: absolute;
+            right: 8px;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $borderInput;
+            transition: unset;
+            svg {
+                width: 20px;
+            }
+        }
+        &.sh-outer {
+            height: calc(69px + 24px);
+            position: relative;
+        }
+        .sh-wrapper {
+            width: 100%;
+        }
+        .sh-label {
+            display: flex;
+            margin-bottom: 4px;
+            font-weight: 400;
+            font-size: 14px;
+            color: $fontOrderItem;
+        }
+        .sh-messages {
+            display: flex;
+            width: 100%;
+        }
+        .sh-message {
+            color: $warnErrText;
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+
+    [data-family="button"] {
+        .sh-input {
+            @include btn-input(216px);
+        }
+    }
+}

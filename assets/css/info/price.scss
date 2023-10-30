@@ -1,0 +1,217 @@
+.price {
+    &__table-img {
+        width: 686px;
+    }
+    &__table-video {
+        width: 654px;
+        display: flex;
+        flex-direction: column;
+        .price__table-video-top {
+            width: 100%;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+        .price__table-video-bottom {
+            width: 100%;
+        }
+    }
+    &__block {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__notes {
+        margin-top: 12px;
+    }
+    &__info {
+        margin-top: 24px;
+        width: 100%;
+        padding-top: 56px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: $active;
+            border-radius: 5px;
+        }
+        %text {
+            font-weight: 400;
+            font-size: 14px;
+            color: $titleOpti;
+            b {
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+        &-title {
+            @extend %text;
+            margin-bottom: 8px;
+        }
+        &-list {
+
+        }
+        &-item {
+            @extend %text;
+            position: relative;
+            margin-top: 8px;
+            padding-left: 13px;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: 0;
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                background: $titleOpti;
+                margin-right: 10px;
+            }
+        }
+    }
+
+}
+
+.table-price {
+    background: $white;
+    border: 2px solid $active;
+    border-radius: 20px;
+    padding: 24px;
+
+    &__table {
+        display: block;
+        width: 100%;
+    }
+    &__caption {
+        font-size: 26px;
+        color: $black;
+        font-weight: 700;
+        margin-bottom: 36px;
+        position: relative;
+        padding-left: calc(30px + 8px);
+        &::before {
+            content: '';
+            left: 0;
+            right: 0;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url("assets/img/price/image.png") no-repeat;
+            background-size: contain;
+        }
+    }
+    td, th {
+        width: 140px;
+    }
+    td:not(& td:first-of-type) {
+        width: 164px;
+    }
+    th:not(& th:first-of-type) {
+        width: 164px;
+    }
+    &__th {
+        font-weight: 400;
+        font-size: 18px;
+        color: $fontOpti;
+    }
+    &__row {
+        display: flex;
+        padding: 14px 0;
+        border-top: 1px solid $page;
+        &:first-of-type {
+            border-top: none;
+        }
+    }
+    thead {
+        border-bottom: 1px solid $page;
+    }
+    &__td-title {
+        font-weight: 400;
+        font-size: 18px;
+        color: $titleOpti;
+    }
+    &__td-item {
+        font-weight: 400;
+        font-size: 14px;
+        color: $titleOpti;
+        b {
+            font-weight: 900;
+            font-size: 18px;
+            color: $black;
+        }
+    }
+
+    &__mass-purchase {}
+}
+
+.table-price--video {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    tbody .table-price__row:last-of-type {
+        border-bottom: 1px solid $page;
+    }
+
+    .table-price__row {
+        td, th {
+            width: 140px;
+        }
+        td:not(.table-price--video td:first-of-type) {
+            width: 145px;
+        }
+        th:not(.table-price--video th:first-of-type) {
+            width: 145px;
+        }
+    }
+    .table-price__caption {
+        &::before {
+            background: url("assets/img/price/video.png") no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+.mass-purchase {
+    padding: 6px 18px;
+    border: 1px solid $page;
+    border-radius: 12px;
+    width: 100%;
+    height: 142px;
+    margin-left: 26px;
+
+    &__title {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $titleOpti;
+        margin-bottom: 8px;
+        strong {
+            font-weight: 600;
+        }
+    }
+    &__list {}
+    &__item {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $titleOpti;
+        display: flex;
+        align-items: center;
+        b {
+            font-size: 16px;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+        &::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: $font;
+            margin-right: 10px;
+        }
+    }
+}

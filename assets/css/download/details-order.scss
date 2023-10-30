@@ -1,0 +1,81 @@
+.details-order {
+    background: $white;
+    border-radius: 20px;
+    width: 280px;
+    min-width: 280px;
+    height: 560px;
+    min-height: 560px;
+    padding: 20px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+
+    position: sticky;
+    top: 0;
+    float: right;
+
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 130%;
+        color: $black;
+        margin-bottom: 12px;
+    }
+    &__list {}
+    &__final {
+        display: flex;
+        flex-direction: column;
+        margin: auto 0 0 0;
+    }
+}
+
+.details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 12px;
+    list-style-type: disc;
+
+    %text-details-item {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $fontOrderItem;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+    &__item-type {
+        @extend %text-details-item;
+    }
+    &__item-cnt {
+        @extend %text-details-item;
+    }
+}
+
+.license-screen {
+    @include btn-tool($mini: true, $nonborder: true);
+    justify-content: flex-start;
+}
+
+.final-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    &__title {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        color: $titleOpti;
+    }
+    &__value {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 33px;
+        color: $titleOpti;
+    }
+}
+.final-action {
+    @include btn-order(100%, 48px, 12px);
+}

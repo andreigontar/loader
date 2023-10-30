@@ -1,0 +1,156 @@
+@import "assets/css/base/button/main";
+@import "assets/css/common/header";
+@import "assets/css/elems/logo";
+@import "assets/css/form/input";
+
+.registration {
+    padding: 40px 7.5%;
+    width: 40%;
+    min-width: 500px;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+    }
+
+    .header-actions__link {
+        padding: 0 12px;
+    }
+
+    .logo {
+        height: 20px;
+    }
+
+    &__to-main {
+        display: flex;
+        font-weight: 400;
+        font-size: 14px;
+        color: $borderInput;
+        margin-bottom: 24px;
+
+        .i-to-main {
+            display: flex;
+            width: 18px;
+            height: 18px;
+            margin-right: 4px;
+            background: url("assets/img/account/header/arrow.png") no-repeat;
+            background-size: 18px;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 26px;
+        color: $black;
+        margin-bottom: 24px;
+    }
+
+    &__action-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24px;
+    }
+
+    &__action-forgot {
+        font-weight: 400;
+        font-size: 14px;
+        color: $fontOpti;
+    }
+
+    &__conditions {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 130%;
+        color: $fontOpti;
+
+        a {
+            @extend .registration__conditions;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: unset;
+            }
+        }
+    }
+
+    &__action-enter {
+    }
+
+    &__hcaptcha {
+        height: 82px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row-reverse;
+        &--row {
+            flex-direction: row;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__form {
+
+    }
+
+    .formkit-form {
+        &.hide {
+        }
+    }
+
+    &__optional {
+        margin: auto 0 0 0;
+    }
+
+    &__optional-link {
+        font-weight: 400;
+        font-size: 12px;
+        color: $fontOpti;
+
+        &:not(&:last-of-type) {
+            margin-right: 34px;
+        }
+        &:hover {
+            color: $black;
+        }
+    }
+
+    .confirm {
+        &__title {
+        }
+
+        &__text {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 140%;
+            color: $black;
+            margin-bottom: 24px;
+
+            b {
+                @extend .confirm__text;
+                font-weight: 600;
+            }
+        }
+
+        &__repeat {
+            font-weight: 400;
+            font-size: 16px;
+            color: $active;
+
+            &:hover {
+                color: $activeHover;
+            }
+
+            &--disabled, &--disabled:hover, &[disabled] {
+                color: $fontOpti;
+            }
+            &--inform {
+                margin-top: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@import "stocks";
+
+// TODO вставить SVG спрайты
+.stock-items {
+    display: flex;
+    gap: 12px;
+    &__item {
+        @include btn-tool;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @each $stock, $width in $stock-btn-width {
+            &[data-type="#{$stock}"] {
+                //width: $width;
+                flex: 1 1 auto;
+            }
+        }
+        @each $stock, $size in $stock-size {
+            &[data-type="#{$stock}"] {
+                background-image: url("assets/img/stock/#{$stock}.png");
+                background-size: $size;
+            }
+        }
+        &:hover, &.stock-items__item--active {
+            @each $stock, $color in $stock-color {
+                &[data-type="#{$stock}"] {
+                    background-color: $color;
+                    border: 1px solid $color;
+                    background-image: url("assets/img/stock/#{$stock}-white.png");
+                }
+            }
+        }
+    }
+}

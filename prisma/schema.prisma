@@ -1,0 +1,195 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id        String     @id @default(uuid())
+    date      DateTime?  @default(now()) @db.Timestamp(0)
+    email     String     @unique
+    confirmed Boolean?   @default(false)
+    download  Download[]
+    queue     Queue[]
+    wallet    Wallet[]
+}
+
+model Wallet {
+    id       String     @id @default(uuid())
+    date     DateTime?  @default(now()) @db.Timestamp(0)
+    userId   String
+    balance  Int        @default(0)
+    Purchase Purchase[]
+    Refill   Refill[]
+    User     User       @relation(fields: [userId], references: [id])
+
+    @@index([userId], map: "Wallet_userId_fkey")
+}
+
+model Refill {
+    id       Int       @id @default(autoincrement())
+    date     DateTime? @default(now()) @db.Timestamp(0)
+    walletId String
+    sum      Int       @default(0)
+    payment  Payment
+    Wallet   Wallet    @relation(fields: [walletId], references: [id])
+
+    @@index([walletId], map: "Refill_walletId_fkey")
+}
+
+model Purchase {
+    id       Int        @id @default(autoincrement())
+    date     DateTime?  @default(now()) @db.Timestamp(0)
+    walletId String
+    sum      Int        @default(0)
+    Download Download[]
+    PCloud   PCloud[]
+    Wallet   Wallet     @relation(fields: [walletId], references: [id])
+
+    @@index([walletId], map: "Purchase_walletId_fkey")
+}
+
+model Download {
+    id         Int       @id @default(autoincrement())
+    date       DateTime? @default(now()) @db.Timestamp(0)
+    userId     String
+    imageId    String    @db.VarChar(255)
+    fileType   FileType
+    fileFormat String?
+    stockType  StockType
+    cost       Int?      @default(0)
+    preview    String?   @db.Text
+    size       String?
+    purchaseId Int?
+    stockId    Int?
+    clientSave Boolean?  @default(false)
+    hasAlready Boolean?  @default(false)
+    Purchase   Purchase? @relation(fields: [purchaseId], references: [id])
+    Stock      Stock?    @relation(fields: [stockId], references: [id])
+    User       User      @relation(fields: [userId], references: [id])
+
+    @@index([purchaseId], map: "Download_purchaseId_fkey")
+    @@index([stockId], map: "Download_stockId_fkey")
+    @@index([userId], map: "Download_userId_fkey")
+}
+
+model Stock {
+    id         Int        @id @default(autoincrement())
+    date       DateTime?  @default(now()) @db.Timestamp(0)
+    imageId    String     @db.VarChar(255)
+    fileType   FileType
+    stockType  StockType
+    size       String?
+    fileFormat String?
+    link       String?    @db.Text
+    preview    String?    @db.Text
+    Download   Download[]
+
+    @@unique([imageId, fileType, stockType])
+}
+
+model Queue {
+    id     Int    @id @default(autoincrement())
+    userId String
+    User   User   @relation(fields: [userId], references: [id])
+
+    @@index([userId], map: "Queue_userId_fkey")
+}
+
+model Price {
+    id    Int       @id @default(autoincrement())
+    stock StockType
+    type  FileType
+    value String?
+    count String?
+}
+
+model Source {
+    id      Int        @id @default(autoincrement())
+    date    DateTime?  @default(now()) @db.Timestamp(0)
+    name    SourceItem
+    login   String
+    pass    String
+    url     String     @db.Text
+    cookie  String?    @db.Text
+    balance Float      @db.Float
+}
+
+model SourcePrice {
+    id        Int        @id @default(autoincrement())
+    date      DateTime?  @default(now()) @db.Timestamp(0)
+    name      SourceItem
+    stockType StockType
+    fileType  FileType
+    price     Float      @db.Float
+    currency  Currency
+}
+
+model Cloud {
+    id           Int       @id @default(autoincrement())
+    name         CloudItem
+    login        String
+    pass         String
+    accessToken  String
+    refreshToken String
+}
+
+model PCloud {
+    id         Int       @id @default(autoincrement())
+    purchaseId Int?
+    date       DateTime? @default(now()) @db.Timestamp(0)
+    link       String
+    isDownload Boolean?  @default(false)
+    Purchase   Purchase? @relation(fields: [purchaseId], references: [id])
+
+    @@index([purchaseId], map: "PCloud_purchaseId_fkey")
+}
+
+enum SourceItem {
+    TOPSTOCK
+    FOTOGET
+}
+
+enum CloudItem {
+    DROPBOX
+}
+
+enum Payment {
+    QIWI
+    YOOMONEY
+}
+
+enum Currency {
+    USD
+    RUB
+}
+
+enum StockType {
+    SHUTTERSTOCK
+    ISTOCK
+    DEPOSITPHOTOS
+    ADOBESTOCK
+    DREAMSTIME
+    RF123
+    VECTORSTOCK
+    ENVATOELEMENTS
+    FREEPIC
+    STORYBLOCKS
+    ICONSCOUT
+}
+
+enum FileType {
+    IMAGE
+    SHUTTERSTOCK_HD
+    SHUTTERSTOCK_4K
+    SHUTTERSTOCK_HD_SELECT
+    SHUTTERSTOCK_4K_SELECT
+    SHUTTERSTOCK_AUDIO
+    ADOBESTOCK_HD
+    ADOBESTOCK_4K
+    ISTOCK_HD
+    ISTOCK_4K
+}

@@ -1,0 +1,49 @@
+.page {
+    //&__header {
+    //    margin-bottom: 40px;
+    //}
+    &__promo {
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+    &__price {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    &__important {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    &__instruction {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    &__reviews {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    &__download{
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+    &__files, &__pre-files {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    &__order-work {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    &__socials {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    //&__footer {
+    //    margin-top: 60px;
+    //}
+
+    &__account {
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+}

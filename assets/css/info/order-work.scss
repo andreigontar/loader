@@ -1,0 +1,105 @@
+.order-work {
+    display: flex;
+    justify-content: space-between;
+    height: 439px;
+
+    &__how-working {}
+    &__questions {}
+}
+
+%order-work-block {
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    padding: 26px 26px 46px;
+}
+%order-work-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: $font;
+}
+
+.how-working {
+    @extend %order-work-block;
+    width: 786px;
+
+    &__title {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 42px;
+        color: $black;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        img {
+            margin-left: 8px;
+        }
+    }
+    &__desc {
+        @extend %order-work-text;
+        margin-bottom: 30px;
+    }
+    &__order {
+    }
+    &__order-item {
+        @extend %order-work-text;
+        display: flex;
+        align-items: center;
+        &::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: $font;
+            margin-right: 10px;
+        }
+        a {
+            @extend %order-work-text;
+            color: $active;
+            &:hover {color: $activeHover}
+        }
+    }
+    &__opti {
+        font-size: 16px;
+        line-height: 130%;
+        color: $borderInput;
+        margin-top: 10px;
+    }
+    &__full-info {
+        width: 426px;
+        height: 48px;
+        font-size: 16px;
+        line-height: 19px;
+        margin: auto 0 0 0;
+    }
+}
+.questions {
+    @extend %order-work-block;
+    width: 554px;
+
+    &__title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 28px;
+        color: $black;
+        margin-bottom: 28px;
+    }
+    &__list-links {
+        margin-bottom: 20px;
+    }
+    &__link {
+        &:not(&:last-of-type) {
+            margin-bottom: 8px;
+        }
+    }
+    &__text {
+        font-size: 18px;
+        line-height: 150%;
+        color: $font;
+
+        &:last-of-type {
+            margin: auto 0 0 0;
+        }
+    }
+}

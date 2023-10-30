@@ -1,0 +1,17 @@
+.account {
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        gap: 26px;
+    }
+    &__field {
+        width: 100%;
+    }
+    &__nav {}
+    &__content {
+        width: 100%;
+        padding: 20px 20px 60px 20px;
+        background: white;
+        border-radius: 20px;
+    }
+}

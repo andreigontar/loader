@@ -1,0 +1,202 @@
+$cart-titles: (
+    preview: 134px,
+    stock: 129px,
+    format: 129px,
+    id: 129px,
+    price: 129px,
+);
+
+.cart {
+    &__titles {}
+    &__tools {}
+    &__list {
+        margin-top: 16px;
+    }
+    &__notlist {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        color: $borderItem;
+        text-align: center;
+        margin-top: 12px;
+    }
+}
+.cart-titles {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    background: $page;
+    border-radius: 32px;
+    padding-left: 68px;
+    li {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $fontOrderItem;
+
+        @each $item, $width in $cart-titles {
+            &[data-type="#{$item}"] {
+                width: $width;
+            }
+        }
+        .tip {
+            margin-left: 5px;
+        }
+    }
+}
+
+.cart-tools {
+    margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+
+    &__check-all {
+        @include btn-tool;
+    }
+    &__to-mail {
+        @include btn-tool($nonborder: true);
+        margin: 0 0 0 auto;
+    }
+    &__download-check {
+        @include btn-tool;
+    }
+    &__download-all {
+        @include btn-tool;
+    }
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    &__item {}
+}
+
+%text-cart-item {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $titleOpti;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    height: 116px;
+    width: 100%;
+    border: 1px solid $borderItem;
+    border-radius: 12px;
+    padding-right: 20px;
+    &--active {
+        border-color: $active;
+    }
+    &__check {
+        width: 68px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px 0 0 12px;
+        cursor: pointer;
+
+        .check {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            background: $white;
+            border: 1px solid $fontOpti;
+            border-radius: 4px;
+
+            &--active {
+                background-image: url("assets/img/account/check-bg.svg");
+                background-repeat: no-repeat;
+                background-size: 20px 16px;
+                background-position: 3px 5px;
+                border-color: $active;
+            }
+        }
+        &:hover {
+            background: $page;
+        }
+    }
+    &__preview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        margin-right: 34px;
+        background-size: 15000px;
+        overflow: hidden;
+    }
+    .preview-image {
+        &__notimage {
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            color: $fontOrderItem;
+        }
+    }
+    &__stock {
+        @extend %text-cart-item;
+        width: 130px;
+    }
+    &__format {
+        width: 130px;
+        .type, .size {
+            @extend %text-cart-item;
+        }
+    }
+    &__id {
+        @extend %text-cart-item;
+        width: 130px;
+    }
+    &__price {
+        @extend %text-cart-item;
+        width: 130px;
+    }
+    &__favorite {
+        width: 68px;
+        .favorite {
+            @include btn-tool($mini: true, $favorite: true);
+            img {
+                filter: grayscale(100%);
+            }
+            &--active, &:hover {
+                img {
+                    filter: unset;
+                }
+            }
+        }
+    }
+    &__download {
+        width: 110px;
+        .download {
+            @include btn-tool($mini: true);
+        }
+    }
+    &__delete {
+        width: 86px;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 0 0 auto;
+        .delete {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: transparent;
+            &:hover {
+                background: $page;
+            }
+        }
+    }
+}
